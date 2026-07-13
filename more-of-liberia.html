@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More of Liberia, LLC — Investment, Concession & Compliance Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0d1826;
+    --navy-2: #14233a;
+    --charcoal: #1b2735;
+    --paper: #f6f4ef;
+    --paper-2: #efece3;
+    --ink: #1a1f26;
+    --ink-soft: #4a5361;
+    --bronze: #b08d57;
+    --bronze-light: #cba977;
+    --bronze-dim: rgba(176,141,87,0.35);
+    --hairline: rgba(20,30,45,0.12);
+    --hairline-dark: rgba(203,169,119,0.18);
+    --radius: 2px;
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  h1,h2,h3,h4{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  p{ margin:0; }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    font-weight: 500;
+  }
+  .wrap{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  section{ position: relative; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 14px 26px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .35s var(--ease);
+  }
+  .btn-primary{
+    background: var(--bronze);
+    color: var(--navy);
+    border-color: var(--bronze);
+  }
+  .btn-primary:hover{
+    background: var(--bronze-light);
+    border-color: var(--bronze-light);
+    transform: translateY(-1px);
+  }
+  .btn-outline{
+    background: transparent;
+    color: var(--paper);
+    border-color: rgba(246,244,239,0.35);
+  }
+  .btn-outline:hover{
+    border-color: var(--bronze-light);
+    color: var(--bronze-light);
+  }
+  .btn-outline-dark{
+    background: transparent;
+    color: var(--navy);
+    border-color: var(--navy);
+  }
+  .btn-outline-dark:hover{
+    background: var(--navy);
+    color: var(--paper);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 500;
+    background: rgba(13,24,38,0.0);
+    transition: background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled{
+    background: rgba(13,24,38,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .logo-mark{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .logo-glyph{
+    width: 38px; height: 38px;
+    border: 1.5px solid var(--bronze);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color: var(--bronze-light);
+    font-size: 1.05rem;
+    flex-shrink:0;
+  }
+  .logo-text{
+    color: var(--paper);
+    font-family:'Fraunces', serif;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+    line-height:1.1;
+  }
+  .logo-text span{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--bronze);
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap: 40px;
+    margin:0; padding:0;
+  }
+  nav ul li a{
+    color: rgba(246,244,239,0.82);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+    transition: color .3s var(--ease);
+  }
+  nav ul li a:hover{ color: var(--bronze-light); }
+  .nav-right{ display:flex; align-items:center; gap: 32px; }
+  .nav-cta{ padding: 11px 22px; font-size: 0.82rem; }
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 6px;
+  }
+  .menu-toggle span{
+    width: 24px; height: 1.5px;
+    background: var(--paper);
+    display:block;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: var(--navy);
+    color: var(--paper);
+    padding: 190px 0 140px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero .wrap{ position: relative; z-index: 2; }
+  .contour-field{
+    position:absolute;
+    inset:0;
+    z-index: 1;
+    opacity: 0.5;
+  }
+  .hero-eyebrow{ margin-bottom: 26px; }
+  .hero h1{
+    color: var(--paper);
+    font-size: clamp(2.3rem, 4.6vw, 3.85rem);
+    line-height: 1.12;
+    max-width: 820px;
+    font-weight: 600;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--bronze-light);
+  }
+  .hero-sub{
+    max-width: 620px;
+    margin-top: 28px;
+    font-size: 1.08rem;
+    color: rgba(246,244,239,0.72);
+    font-weight: 400;
+  }
+  .hero-actions{
+    margin-top: 44px;
+    display:flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .hero-stats{
+    margin-top: 88px;
+    display:flex;
+    gap: 0;
+    border-top: 1px solid var(--hairline-dark);
+    padding-top: 34px;
+    flex-wrap: wrap;
+  }
+  .hero-stat{
+    padding-right: 56px;
+    margin-right: 56px;
+    border-right: 1px solid var(--hairline-dark);
+  }
+  .hero-stat:last-child{ border-right:none; margin-right:0; padding-right:0; }
+  .hero-stat .num{
+    font-family:'Fraunces', serif;
+    font-size: 2.1rem;
+    color: var(--bronze-light);
+    font-weight: 500;
+    display:block;
+  }
+  .hero-stat .lbl{
+    font-size: 0.8rem;
+    color: rgba(246,244,239,0.6);
+    margin-top: 6px;
+    display:block;
+    max-width: 160px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding: 120px 0; }
+  .section-head{
+    max-width: 620px;
+    margin-bottom: 68px;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-top: 18px;
+    line-height:1.25;
+  }
+  .section-head p{
+    margin-top: 20px;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+  .section-alt{ background: var(--paper-2); }
+
+  /* ---------- SECTORS ---------- */
+  .sector-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .sector-card{
+    background: var(--paper);
+    padding: 40px 30px;
+    transition: background .35s var(--ease);
+    reveal: true;
+  }
+  .sector-card:hover{ background: #fffdf9; }
+  .sector-mark{
+    width: 44px; height: 44px;
+    margin-bottom: 26px;
+  }
+  .sector-card h3{
+    font-size: 1.12rem;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .sector-card p{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- WHY ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .why-statement h2{
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+    line-height: 1.35;
+  }
+  .why-statement .eyebrow{ margin-bottom: 20px; display:block; }
+  .why-list{
+    display:flex;
+    flex-direction: column;
+  }
+  .why-item{
+    display:flex;
+    gap: 22px;
+    padding: 28px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .why-item:last-child{ border-bottom: 1px solid var(--hairline); }
+  .why-mark{
+    font-family:'IBM Plex Mono', monospace;
+    color: var(--bronze);
+    font-size: 0.78rem;
+    padding-top: 3px;
+    flex-shrink:0;
+    width: 28px;
+  }
+  .why-item h4{
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .why-item p{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- LEADERSHIP ---------- */
+  .leader-block{
+    display:grid;
+    grid-template-columns: 260px 1fr;
+    gap: 60px;
+    align-items: start;
+    background: var(--navy);
+    color: var(--paper);
+    padding: 64px;
+    border: 1px solid var(--hairline-dark);
+  }
+  .leader-photo{
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, var(--navy-2), var(--charcoal));
+    border: 1px solid var(--hairline-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    overflow:hidden;
+  }
+  .leader-photo .initials{
+    font-family:'Fraunces', serif;
+    font-size: 3.4rem;
+    color: var(--bronze);
+    opacity: 0.85;
+    letter-spacing: 0.02em;
+  }
+  .leader-photo svg{ position:absolute; inset:0; opacity:0.35; }
+  .leader-name{
+    color: var(--paper);
+    font-size: 1.55rem;
+  }
+  .leader-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bronze-light);
+    margin-top: 10px;
+    display:block;
+  }
+  .leader-bio{
+    margin-top: 26px;
+    color: rgba(246,244,239,0.72);
+    font-size: 0.97rem;
+    max-width: 560px;
+  }
+  .leader-bio p + p{ margin-top: 14px; }
+  .leader-credentials{
+    display:flex;
+    gap: 40px;
+    margin-top: 34px;
+    padding-top: 28px;
+    border-top: 1px solid var(--hairline-dark);
+    flex-wrap: wrap;
+  }
+  .leader-credentials div span{
+    display:block;
+  }
+  .leader-credentials .cred-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .leader-credentials .cred-value{
+    margin-top: 6px;
+    font-size: 0.88rem;
+    color: rgba(246,244,239,0.85);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+  }
+  .contact-info h2{ font-size: clamp(1.6rem, 3vw, 2.15rem); line-height: 1.3; }
+  .contact-info .lede{
+    margin-top: 22px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    max-width: 420px;
+  }
+  .contact-detail{
+    margin-top: 40px;
+    display:flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .contact-detail-item .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .contact-detail-item .val{
+    margin-top: 6px;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .contact-close{
+    margin-top: 48px;
+    padding-top: 30px;
+    border-top: 1px solid var(--hairline);
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--navy);
+  }
+  form{
+    background: var(--paper-2);
+    padding: 46px;
+    border: 1px solid var(--hairline);
+  }
+  .form-row{ margin-bottom: 22px; }
+  .form-row label{
+    display:block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .form-row input,
+  .form-row textarea{
+    width:100%;
+    padding: 13px 14px;
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size: 0.94rem;
+    color: var(--ink);
+    border-radius: var(--radius);
+    transition: border-color .3s var(--ease);
+  }
+  .form-row input:focus,
+  .form-row textarea:focus{
+    outline: none;
+    border-color: var(--bronze);
+  }
+  .form-row textarea{ resize: vertical; min-height: 110px; }
+  .form-note{
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+  .form-success{
+    display:none;
+    padding: 16px 18px;
+    background: rgba(176,141,87,0.12);
+    border: 1px solid var(--bronze-dim);
+    font-size: 0.88rem;
+    color: var(--navy);
+    margin-bottom: 22px;
+  }
+  .form-success.show{ display:block; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--navy);
+    color: rgba(246,244,239,0.6);
+    padding: 70px 0 34px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .footer-brand .logo-text{ margin-bottom: 18px; }
+  .footer-brand p{
+    font-size: 0.86rem;
+    max-width: 260px;
+    line-height: 1.7;
+  }
+  .footer-col h5{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 12px; }
+  .footer-col ul li a{
+    font-size: 0.88rem;
+    color: rgba(246,244,239,0.62);
+    transition: color .3s var(--ease);
+  }
+  .footer-col ul li a:hover{ color: var(--bronze-light); }
+  .footer-bottom{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding-top: 28px;
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .sector-grid{ grid-template-columns: repeat(2, 1fr); }
+    .why-grid{ grid-template-columns: 1fr; gap: 50px; }
+    .leader-block{ grid-template-columns: 200px 1fr; padding: 40px; gap: 40px; }
+    .contact-grid{ grid-template-columns: 1fr; gap: 50px; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 720px){
+    .wrap{ padding: 0 22px; }
+    nav ul{
+      position: fixed;
+      top: 76px; left:0; right:0;
+      background: rgba(13,24,38,0.98);
+      flex-direction: column;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      transition: max-height .4s var(--ease);
+      border-bottom: 1px solid var(--hairline-dark);
+    }
+    nav ul.open{ max-height: 320px; }
+    nav ul li{ width:100%; }
+    nav ul li a{
+      display:block;
+      padding: 18px 22px;
+      border-top: 1px solid var(--hairline-dark);
+    }
+    .nav-right{ gap: 16px; }
+    .nav-cta{ padding: 9px 16px; font-size: 0.76rem; }
+    .menu-toggle{ display:flex; }
+    .hero{ padding: 150px 0 90px; }
+    .hero-stats{ margin-top: 56px; }
+    .hero-stat{ padding-right: 28px; margin-right: 28px; }
+    .section{ padding: 80px 0; }
+    .sector-grid{ grid-template-columns: 1fr; }
+    .leader-block{ grid-template-columns: 1fr; padding: 30px; }
+    .leader-photo{ max-width: 200px; }
+    footer{ padding-top: 50px; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap: 34px; }
+    form{ padding: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="#top" class="logo-mark">
+      <div class="logo-glyph">ML</div>
+      <div class="logo-text">More of Liberia<span>Advisory &amp; Compliance, LLC</span></div>
+    </a>
+    <nav>
+      <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-primary nav-cta">Schedule a Consultation</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="contour-field" id="contourField"></div>
+    <div class="wrap">
+      <span class="eyebrow hero-eyebrow">Investment · Concession · Compliance Advisory — Monrovia, Liberia</span>
+      <h1>The bridge between international capital and <em>Liberia's</em> resource economy.</h1>
+      <p class="hero-sub">More of Liberia, LLC guides investors, developers, and operators through concession negotiation, regulatory compliance, and government relations across the mining, energy, and natural resource sectors — backed by nearly two decades of combined public and private sector experience inside Liberia's institutions.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+        <a href="#services" class="btn btn-outline">View Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="num">~20</span>
+          <span class="lbl">Years combined public &amp; private sector experience</span>
+        </div>
+        <div class="hero-stat">
+          <span class="num">3</span>
+          <span class="lbl">Core sectors — mining, energy, natural resources</span>
+        </div>
+        <div class="hero-stat">
+          <span class="num">01</span>
+          <span class="lbl">Dedicated point of contact from due diligence to operation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / SECTORS -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What We Advise On</span>
+        <h2>Advisory built for the full lifecycle of a Liberian concession.</h2>
+        <p>From first-stage due diligence to ongoing regulatory reporting, our engagements are structured around the milestones that determine whether an investment clears Liberian institutions cleanly — and stays cleared.</p>
+      </div>
+
+      <div class="sector-grid" id="sectors">
+        <div class="sector-card reveal">
+          <svg class="sector-mark" viewBox="0 0 44 44" fill="none">
+            <rect x="6" y="6" width="32" height="32" stroke="#b08d57" stroke-width="1.2"/>
+            <path d="M13 28 L13 18 M22 28 L22 13 M31 28 L31 22" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3>Concession Agreement Management</h3>
+          <p>Structuring, negotiating, and administering concession agreements with Liberian ministries and agencies — from initial terms through amendment and renewal cycles.</p>
+        </div>
+        <div class="sector-card reveal">
+          <svg class="sector-mark" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="16" stroke="#b08d57" stroke-width="1.2"/>
+            <path d="M22 6 V22 L32 28" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3>Mining &amp; Energy Advisory</h3>
+          <p>Technical and strategic counsel on licensing, resource development, and operational planning across Liberia's minerals and power generation landscape.</p>
+        </div>
+        <div class="sector-card reveal">
+          <svg class="sector-mark" viewBox="0 0 44 44" fill="none">
+            <path d="M14 8 H30 L34 12 V36 H10 V12 L14 8 Z" stroke="#b08d57" stroke-width="1.2"/>
+            <path d="M16 18 H28 M16 24 H28 M16 30 H22" stroke="#b08d57" stroke-width="1.2"/>
+          </svg>
+          <h3>Regulatory Compliance &amp; Audit</h3>
+          <p>Ongoing compliance monitoring, statutory reporting, and internal audit support to keep operations aligned with Liberian law and concession obligations.</p>
+        </div>
+        <div class="sector-card reveal">
+          <svg class="sector-mark" viewBox="0 0 44 44" fill="none">
+            <path d="M9 32 L17 22 L24 27 L35 12" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 12 H35 V19" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Investment Strategy</h3>
+          <p>Market entry planning, risk assessment, and stakeholder mapping for investors evaluating opportunities in Liberia's resource and infrastructure sectors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="why-grid">
+        <div class="why-statement reveal">
+          <span class="eyebrow">Why More of Liberia</span>
+          <h2>Institutional fluency, on both sides of the table.</h2>
+        </div>
+        <div class="why-list">
+          <div class="why-item reveal">
+            <span class="why-mark">01</span>
+            <div>
+              <h4>Deep local regulatory knowledge</h4>
+              <p>Direct, working familiarity with Liberia's concession law, mining and energy regulations, and the ministries that administer them.</p>
+            </div>
+          </div>
+          <div class="why-item reveal">
+            <span class="why-mark">02</span>
+            <div>
+              <h4>Direct experience with concession negotiations</h4>
+              <p>Hands-on involvement in structuring and negotiating concession terms, not solely advisory theory from the outside.</p>
+            </div>
+          </div>
+          <div class="why-item reveal">
+            <span class="why-mark">03</span>
+            <div>
+              <h4>A bridge between government and investors</h4>
+              <p>Positioned to translate investor expectations to government stakeholders, and government requirements back to investors, in both directions.</p>
+            </div>
+          </div>
+          <div class="why-item reveal">
+            <span class="why-mark">04</span>
+            <div>
+              <h4>Track record across public and private sectors</h4>
+              <p>A team background spanning both government service and private advisory work, giving clients perspective few firms can offer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leadership</span>
+        <h2>Guided by direct experience inside Liberia's institutions.</h2>
+      </div>
+      <div class="leader-block reveal">
+        <div class="leader-photo">
+          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 190 Q40 160 80 175 T160 155 T260 170" stroke="#b08d57" stroke-width="1" fill="none"/>
+            <path d="M0 210 Q50 185 100 200 T200 185 T260 200" stroke="#b08d57" stroke-width="1" fill="none"/>
+            <path d="M0 230 Q60 210 120 222 T260 220" stroke="#b08d57" stroke-width="1" fill="none"/>
+          </svg>
+          <span class="initials">ISN</span>
+        </div>
+        <div>
+          <h3 class="leader-name">Ignatius Saymel Neepaye</h3>
+          <span class="leader-title">Chief Executive Officer</span>
+          <div class="leader-bio">
+            <p>[Bio summary here — professional background, prior government and private sector roles, and areas of specialization to be provided by client.]</p>
+            <p>[Additional bio detail here — relevant credentials, sector focus, and notable engagements to be confirmed by client before publication.]</p>
+          </div>
+          <div class="leader-credentials">
+            <div>
+              <span class="cred-label">Focus</span>
+              <span class="cred-value">Concessions &amp; Investment Advisory</span>
+            </div>
+            <div>
+              <span class="cred-label">Sectors</span>
+              <span class="cred-value">Mining, Energy, Natural Resources</span>
+            </div>
+            <div>
+              <span class="cred-label">Based In</span>
+              <span class="cred-value">Monrovia, Liberia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-alt" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="eyebrow">Get In Touch</span>
+          <h2>Start the conversation before you commit capital.</h2>
+          <p class="lede">Whether you're evaluating a concession opportunity or need compliance support for an existing operation, our team is available for an initial consultation to scope your needs.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-item">
+              <span class="lbl">Office</span>
+              <span class="val">[Street Address], Monrovia, Liberia</span>
+            </div>
+            <div class="contact-detail-item">
+              <span class="lbl">Email</span>
+              <span class="val">info@moreofliberia.com</span>
+            </div>
+            <div class="contact-detail-item">
+              <span class="lbl">Phone</span>
+              <span class="val">+231 [00] [000] [0000]</span>
+            </div>
+          </div>
+
+          <p class="contact-close">"Trusted advisory for Liberia's next generation of investment."</p>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-success" id="formSuccess">Thank you — your message has been received. A member of our team will respond within two business days.</div>
+          <div class="form-row">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Carter" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required>
+          </div>
+          <div class="form-row">
+            <label for="org">Organization <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+            <input type="text" id="org" name="org" placeholder="Company or fund name">
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about the opportunity or compliance need you'd like to discuss." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-dark" style="width:100%; justify-content:center;">Send Message</button>
+          <p class="form-note">All inquiries are treated as confidential. This form does not submit data anywhere in this preview build.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-mark" style="margin-bottom:18px;">
+          <div class="logo-glyph">ML</div>
+          <div class="logo-text">More of Liberia<span>Advisory &amp; Compliance, LLC</span></div>
+        </div>
+        <p>Investment, concession, and compliance advisory for international investors and businesses entering Liberia's mining, energy, and natural resource sectors.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Firm</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Concession Management</a></li>
+          <li><a href="#services">Mining &amp; Energy Advisory</a></li>
+          <li><a href="#services">Compliance &amp; Audit</a></li>
+          <li><a href="#services">Investment Strategy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@moreofliberia.com">info@moreofliberia.com</a></li>
+          <li><a href="#">+231 [00] [000] [0000]</a></li>
+          <li><a href="#">Monrovia, Liberia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 More of Liberia, LLC. All rights reserved.</span>
+      <span>[Company Registration No.] · Monrovia, Liberia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header background on scroll
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('open');
+  });
+  navList.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navList.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Contact form (client-side only, no backend in this preview)
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    success.classList.add('show');
+    form.reset();
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  // Generative topographic contour field for the hero background
+  (function buildContours(){
+    const el = document.getElementById('contourField');
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', '0 0 1200 700');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+
+    const rows = 9;
+    for (let i = 0; i < rows; i++) {
+      const baseY = 60 + i * 68 + (Math.sin(i * 1.3) * 20);
+      let d = `M -20 ${baseY}`;
+      for (let x = 0; x <= 1240; x += 80) {
+        const wob = Math.sin((x / 140) + i * 0.8) * (18 + i * 1.5);
+        d += ` L ${x} ${baseY + wob}`;
+      }
+      const path = document.createElementNS(svgNS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', '#b08d57');
+      path.setAttribute('stroke-width', '1');
+      path.setAttribute('opacity', (0.06 + (i % 3) * 0.03).toFixed(2));
+      svg.appendChild(path);
+    }
+    el.appendChild(svg);
+  })();
+</script>
+
+</body>
+</html>
